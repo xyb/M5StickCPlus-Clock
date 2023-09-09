@@ -58,7 +58,7 @@ void doTime() {
   if (timeToDo(1000)) {
     Disbuff.fillRect(0, 0, 240, 135, Disbuff.color565(0, 0, 0));
     M5.Rtc.GetTime(&rtc_time);
-    M5.Rtc.GetData(&rtc_date);
+    M5.Rtc.GetDate(&rtc_date);
 
     Disbuff.setTextSize(4);
     Disbuff.setTextColor(TFT_WHITE);
@@ -128,7 +128,7 @@ void timeSync() {
     DateStruct.Month = timeInfo.tm_mon + 1;
     DateStruct.Date = timeInfo.tm_mday;
     DateStruct.Year = timeInfo.tm_year + 1900;
-    M5.Rtc.SetData(&DateStruct);
+    M5.Rtc.SetDate(&DateStruct);
     Serial.println("Time now matching NTP");
     M5.Lcd.fillScreen(BLACK);
     M5.Lcd.setCursor(20, 15);
